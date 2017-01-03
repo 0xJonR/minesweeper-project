@@ -10,14 +10,14 @@ public class Minefield{
     System.out.println("Minefield constructer initiliazed");
     int RowL = m;
     int ColL = n;
-    boolean[][] bombs = new boolean[m+2][n+2];
+    bombs = new boolean[m+2][n+2];
     for (int a = 1; a<=m;a++){
       for (int b =1;b<=n;b++){
        bombs[a][b] = (Math.random() < p);
       }
     }
     System.out.println("Boolean[][] bombs initialized.");
-    String[][] field = new String[m+2][n+2];
+    field = new String[m+2][n+2];
     for (int i=1;i<=m;i++){
       for (int j=1;j<=n;j++){
         field[i][j]=".";
@@ -26,7 +26,7 @@ public class Minefield{
       System.out.println();
     }
     System.out.println("Field initlaized");
-    int[][] bombCount = new int[m+2][n+2];
+     bombCount = new int[m+2][n+2];
     //# bombs adjacent to cell (i, j)
     for (int i=1;i<=m;i++){
       for (int j=1;j<=n;j++){
