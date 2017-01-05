@@ -1,7 +1,7 @@
 import java.lang.Boolean;
 public class Minefield{
   public boolean[][] bombs; //marks where bombs are 
-  private String[][] field; //serves as the playing field
+  public String[][] field; //serves as the playing field
   public int[][] bombCount; //an int array with bomb nums to save time on computations
   public boolean won=true;
   public int RowL;
@@ -62,8 +62,9 @@ public class Minefield{
     }
     else{
       field[xa][ya]=(Integer.toString(bombCount[xa][ya]));
+      AdjacentCellCheck(field, bombs);
       PrintLoop(field);
-      //System.out.println("Gamecheck done.");
+      //System.out.println("Gamecheck end of method.");
     } 
   }
   public void PrintLoop(boolean[][] arrayz){
@@ -93,5 +94,17 @@ public class Minefield{
       System.out.println();
     }
   }
-  
-  }
+    public void AdjacentCellCheck(String[][] arrayz, boolean[][] bs) { //serves to check adjacent cells 
+      for (int i=1;i<=arrayz.length-2;i++){ //uses similar logical interation as found in constructor
+        for (int j=1;j<=arrayz[0].length-2;j++){  // int cols = matrix[0].length 
+//
+          for (int ii =i-1;ii<=i+1;ii++){
+            for (int jj =j-1;jj<=j+1;jj++){ //see constructor for comments
+              if (bs[ii][jj]){
+                arrayz[ii][jj]=(Integer.toString(bombCount[ii][jj]));
+              }
+            }}
+        }}
+    }
+}
+              
